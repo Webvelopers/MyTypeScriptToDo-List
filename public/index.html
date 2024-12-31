@@ -2,10 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My TypeScript ToDo-List</title>
+    <link rel="icon" href="favicon.svg" type="image/x-svg" />
+    <meta name="author" content="Webvelopers, Inc." />
+    <meta
+      name="description"
+      content="This is a simple TODO-list application built with TypeScript"
+    />
+    <meta name="keywords" content="to do, todo, to-do, to do list, todo-list" />
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="min-h-screen bg-gray-700 text-white p-4 flex flex-col">
+    <main class="flex-grow w-full max-w-[800px] flex flex-col m-auto">
+      <section class="sticky top-0 mb-4">
+        <h2 class="absolute -left-[10000px]">New Item Entry</h2>
+        <form id="itemEntryForm" class="flex gap-1 md:gap-2 text-xl">
+          <label for="newItem" class="absolute -left-[10000px]"
+            >Enter a new to do item</label
+          >
+          <input
+            id="newItem"
+            type="text"
+            maxlength="40"
+            autocomplete="off"
+            placeholder="Add item"
+            class="text-gray-500 w-[calc(100%_-_theme(spacing.1)_-_48px)] flex-grow border-2 border-gray-100 rounded-md p-2"
+          />
+          <button
+            id="addItem"
+            title="Add new item"
+            aria-label="Add new item to list"
+            class="bg-transparent text-gray-100 border-1 border-dashed rounded-lg border-gray-100 p-3 hover:bg-gray-600 hover:text-gray-300"
+          >
+            <i class="fa fa-plus"></i>
+          </button>
+        </form>
+      </section>
+
+      <section class="text-xl flex-grow flex flex-col gap-4">
+        <header class="flex justify-between items-end">
+          <h2 id="listName">ToDo-List</h2>
+          <button
+            id="clearItemsButton"
+            title="Clear the list"
+            aria-label="Remove all items from the list"
+            class="bg-transparent text-gray-100 p-2 border-1 border-dashed rounded-lg hover:bg-gray-600 hover:text-gray-300"
+          >
+            <i class="fas fa-circle-xmark"></i> Clear All
+          </button>
+        </header>
+        <hr />
+        <ul id="list"></ul>
+      </section>
+    </main>
   </body>
 </html>
